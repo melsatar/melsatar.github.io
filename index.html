@@ -550,6 +550,10 @@ var infolinks_wsid = 1;
         p = encodeURIComponent(top.document.location.href.substring(0,250)),
         t = Date.now(),
         u = 'e75b125f-3c36-4149-96d5-1507f393d86b',
+        o = encodeURIComponent(JSON.stringify({
+          dfpViewUrl: '%%VIEW_URL_UNESC%%',
+          dfpClickUrl: '%%CLICK_URL_UNESC%%'
+        })),
         e = document.createElement('script'),
         s = sessionStorage.getItem('spoutable-' + u);
     if (!s) {
@@ -558,7 +562,7 @@ var infolinks_wsid = 1;
       sessionStorage.setItem('spoutable-' + u, s);
     }
     e.async = true;
-    e.src='//s.spoutable.com/s?u='+u+'&s='+encodeURIComponent(s)+'&t='+t+'&r='+r+'&p='+p;
+    e.src='//s.spoutable.com/s?u='+u+'&s='+encodeURIComponent(s)+'&t='+t+'&o='+o+'&r='+r+'&p='+p;
     document.head.appendChild(e);
   })();
 </script>
